@@ -13,6 +13,8 @@ def test(*,
          dimensions: str = Form(...),
          instanceName: str = Form(...),
          metricName: str = Form(...),
+         timestamp: str = Form(...),
+         triggerLevel: str = Form(...),
          ):
 
     data_dict = {
@@ -22,6 +24,8 @@ def test(*,
         "instanceid": dimensions,
         "instancename": instanceName,
         "metricname": metricName,
+        "timestamp": timestamp,
+        "triggerLevel": triggerLevel
     }
 
     print(data_dict)
