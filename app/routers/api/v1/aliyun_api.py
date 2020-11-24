@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Form
+from ....models.mongo_operation import insert_one_data
 
 
 router = APIRouter()
@@ -24,5 +25,10 @@ def test(*,
     }
 
     print(data_dict)
-    # return {"status": True}
+    record_id = insert_one_data(data_dict)
+    print(record_id)
+    if record_id:
+        return {"status": True}
+    else:
+        return {"status": False, "error": "数据插入失败"}
 
